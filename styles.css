@@ -636,16 +636,17 @@ p { margin: 0; }
 .footer-links, .footer-contact { display: grid; gap: 0.65rem; }
 
 .footer-bottom {
-  margin-top: 3rem;
-  padding-top: 2rem;
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 250, 245, 0.6);
 }
 
 .developer-credit a {
@@ -687,6 +688,8 @@ p { margin: 0; }
   h2 { font-size: 2.15rem; }
   .container { width: min(var(--container), calc(100% - 1.25rem)); }
   .testimonial-shell, .cta-card, .feature-card, .service-card, .education-card, .narrative-card, .form-card { border-radius: 22px; }
+  .site-footer { padding-bottom: 8rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
   .whatsapp-fab { left: 0.75rem; right: 0.75rem; text-align: center; justify-content: center; }
   .brand {
     gap: 0.7rem;

@@ -77,10 +77,10 @@ function renderFooter() {
               <a href="https://www.tiktok.com/@henna_by_ruffy?_r=1&_t=ZS-95AZsRQnbZx" target="_blank" rel="noopener">TikTok</a>
             </div>
           </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© ${new Date().getFullYear()} Henna_by_ruffy. All rights reserved.</p>
-          <p class="developer-credit">Built by <a href="https://wa.me/2348137250625?text=Hello%20TechSageHub%2C%20I%20saw%20your%20work%20on%20Henna_by_ruffy%20and%20I'd%20like%20to%20inquire%20about%20a%20website." target="_blank" rel="noopener">TechSageHub</a></p>
+          <div class="footer-bottom">
+            <p>© ${new Date().getFullYear()} Henna_by_ruffy. All rights reserved.</p>
+            <p class="developer-credit">Built by <a href="https://wa.me/2348137250625?text=Hello%20TechSageHub%2C%20I%20saw%20your%20work%20on%20Henna_by_ruffy%20and%20I'd%20like%20to%20inquire%20about%20a%20website." target="_blank" rel="noopener">TechSageHub</a></p>
+          </div>
         </div>
       </div>
     </footer>`;
