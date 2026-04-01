@@ -55,7 +55,35 @@ function renderHeader() {
 function renderFooter() {
   const footerHost = document.getElementById("site-footer");
   if (!footerHost) return;
-  footerHost.innerHTML = `<footer class="site-footer"><div class="container"><div class="footer-card"><div><p class="eyebrow">Henna_by_ruffy</p><h3>Signature henna services rooted in artistry and built for expansion.</h3><p>Luxury, long-lasting henna designs, professional beauty training, and premium henna tools under one elegant brand direction.</p></div><div><h3>Pages</h3><div class="footer-links">${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</div></div><div><h3>Contact</h3><div class="footer-contact"><a href="tel:+2349038456155">+234 903 845 6155</a><a href="mailto:Rofihatraheem@gmail.com">Rofihatraheem@gmail.com</a><a href="https://www.instagram.com/henna_by_ruffy?igsh=MnNqcXNjbXp4NzF3&utm_source=qr" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@henna_by_ruffy?_r=1&_t=ZS-95AZsRQnbZx" target="_blank" rel="noopener">TikTok</a></div></div></div></div></footer>`;
+  footerHost.innerHTML = `
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-card">
+          <div>
+            <p class="eyebrow">Henna_by_ruffy</p>
+            <h3>Signature henna services rooted in artistry and built for expansion.</h3>
+            <p>Luxury, long-lasting henna designs, professional beauty training, and premium henna tools under one elegant brand direction.</p>
+          </div>
+          <div>
+            <h3>Pages</h3>
+            <div class="footer-links">${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</div>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <div class="footer-contact">
+              <a href="tel:+2349038456155">+234 903 845 6155</a>
+              <a href="mailto:Rofihatraheem@gmail.com">Rofihatraheem@gmail.com</a>
+              <a href="https://www.instagram.com/henna_by_ruffy?igsh=MnNqcXNjbXp4NzF3&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://www.tiktok.com/@henna_by_ruffy?_r=1&_t=ZS-95AZsRQnbZx" target="_blank" rel="noopener">TikTok</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© ${new Date().getFullYear()} Henna_by_ruffy. All rights reserved.</p>
+          <p class="developer-credit">Built by <a href="https://wa.me/2348137250625?text=Hello%20TechSageHub%2C%20I%20saw%20your%20work%20on%20Henna_by_ruffy%20and%20I'd%20like%20to%20inquire%20about%20a%20website." target="_blank" rel="noopener">TechSageHub</a></p>
+        </div>
+      </div>
+    </footer>`;
 }
 
 function renderServicePreview() {
