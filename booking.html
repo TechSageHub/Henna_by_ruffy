@@ -14,38 +14,137 @@
 <body data-page="booking">
   <div id="site-header"></div>
   <main class="inner-page">
-    <section class="page-hero compact-page-hero">
-      <div class="container reveal">
-        <p class="eyebrow">Book Your Session</p>
-        <h1>Reserve your appointment in a few simple steps.</h1>
-        <p>Choose your preferred service, date, and time. This demo form is ready for future backend or WhatsApp integration.</p>
+    <section class="section soft-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Guidelines</p>
+          <h2>Henna Booking Policy & Client Guidelines</h2>
+          <p>Please read these policies carefully before booking. Your comfort, safety, and satisfaction are my top priority.</p>
+        </div>
+        <div class="policy-grid reveal">
+          <article class="policy-card">
+            <div class="policy-header"><span>01</span><h3>Booking & Payment</h3></div>
+            <p>A non-refundable deposit is required to secure all appointments. Full payment must be completed on or before the day of your appointment.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>02</span><h3>Cancellation</h3></div>
+            <p>Reschedule with 24–48 hours notice. Same-day cancellations will result in loss of deposit.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>03</span><h3>Late Arrivals</h3></div>
+            <p>10–15 minute grace period. Arrivals beyond this time may lead to cancellation or reduced design time.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>04</span><h3>Skin Preparation</h3></div>
+            <p>Arrive with clean, product-free skin. Exfoliate 24h prior. Avoid waxing/shaving the area right before.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>05</span><h3>Design Policy</h3></div>
+            <p>Agree on designs before the session. Major changes during the session may attract additional charges.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>06</span><h3>Aftercare Responsibility</h3></div>
+            <p>We provide instructions, but you are responsible for following them for a rich, long-lasting stain.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>07</span><h3>Safety & Allergy Disclaimer</h3></div>
+            <p>Henna is generally safe, but reactions can occur. Disclose all relevant conditions beforehand.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>08</span><h3>Patch Test Policy</h3></div>
+            <p>Highly recommended for first-timers or sensitive skin. Request 24h before your appointment.</p>
+          </article>
+          <article class="policy-card">
+            <div class="policy-header"><span>09</span><h3>Refusal of Service</h3></div>
+            <p>Service may be refused if skin is unsuitable (irritation/infection) or policies are not respected.</p>
+          </article>
+        </div>
       </div>
     </section>
+
     <section class="section">
-      <div class="container booking-grid">
-        <div class="booking-copy reveal">
-          <p class="eyebrow">Booking Notes</p>
-          <h2>Designed for beauty bookings now and easy expansion later.</h2>
-          <p>The structure supports current services and can grow to include staff availability, deposits, or integrated online scheduling whenever you are ready.</p>
-          <div class="booking-notes">
-            <article>
-              <h3>Fast response</h3>
-              <p>Use the form or WhatsApp button for quick appointment inquiries.</p>
-            </article>
-            <article>
-              <h3>Flexible scheduling</h3>
-              <p>Perfect for personal sessions, event prep, or beauty maintenance.</p>
-            </article>
-          </div>
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Confirm Your Booking</p>
+          <h2>Client Consultation & Session Selection</h2>
         </div>
-        <form class="form-card reveal" id="booking-form">
-          <label>Full Name<input type="text" name="name" placeholder="Enter your full name" required></label>
-          <label>Phone Number<input type="tel" name="phone" placeholder="+234..." required></label>
-          <label>Service Selection<select name="service" required id="booking-service"></select></label>
-          <label>Date<input type="date" name="date" required></label>
-          <label>Time<input type="time" name="time" required></label>
-          <label>Notes<textarea name="notes" rows="5" placeholder="Tell us about your preferred style, event, or any special requests."></textarea></label>
-          <button class="button button-primary" type="submit">Submit Booking Request</button>
+        <form class="booking-form-pro reveal" id="booking-form">
+          <!-- Step 1: Health Consultation -->
+          <fieldset class="form-step">
+            <legend>Step 1: Health Consultation</legend>
+            <p class="step-guide">Please answer the following for your safety.</p>
+            <div class="consultation-grid">
+              <label class="check-group">Do you have sensitive skin?
+                <select name="sensitive_skin" required><option value="No">No</option><option value="Yes">Yes</option></select>
+              </label>
+              <label class="check-group">Any skin conditions (eczema, psoriasis, acne)?
+                <select name="skin_condition" required><option value="No">No</option><option value="Yes">Yes</option></select>
+              </label>
+              <label class="check-group">Any cuts, burns, or rashes in the area?
+                <select name="active_irritation" required><option value="No">No</option><option value="Yes">Yes</option></select>
+              </label>
+              <label class="check-group">Have you used henna before safely?
+                <select name="henna_history" required><option value="Yes">Yes</option><option value="No">No</option></select>
+              </label>
+              <label class="check-group">Allergy to plant products or essential oils?
+                <select name="allergies" required><option value="No">No</option><option value="Yes">Yes</option></select>
+              </label>
+              <label class="check-group">Are you pregnant or breastfeeding?
+                <select name="medical_status" required><option value="No">No</option><option value="Yes">Yes</option></select>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Service Selection -->
+          <fieldset class="form-step">
+            <legend>Step 2: Service & Location</legend>
+            <div class="booking-inputs">
+              <label>Service Selection<select name="service" required id="booking-service"></select></label>
+              <label>Service Type
+                <select name="service_type" id="service_type" required>
+                  <option value="Walk-In">Walk-In / Studio Appointment</option>
+                  <option value="Home Service">Home Service (Mobile Appointment)</option>
+                </select>
+              </label>
+              <div id="home-service-fields" class="conditional-fields">
+                <label>Address (Include Landmark)<input type="text" name="address" placeholder="e.g., 21 Yaba St, near the mall"></label>
+                <label>Location / Area<input type="text" name="area" placeholder="e.g., Yaba, Lekki, Ikorodu"></label>
+                <label>Environment<select name="environment"><option value="Residential">Residential</option><option value="Commercial">Commercial</option></select></label>
+                <label>Will others be present?<select name="others_present"><option value="No">No</option><option value="Yes">Yes</option></select></label>
+              </div>
+              <div class="grid-2">
+                <label>Preferred Date<input type="date" name="date" required></label>
+                <label>Preferred Time<input type="time" name="time" required></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 3: Verification -->
+          <fieldset class="form-step">
+            <legend>Step 3: Client Information</legend>
+            <div class="booking-inputs">
+              <div class="grid-2">
+                <label>Full Name<input type="text" name="name" placeholder="Full name" required></label>
+                <label>WhatsApp Number<input type="tel" name="phone" placeholder="Active phone number" required></label>
+              </div>
+              <div class="grid-2">
+                <label>Alt. Contact (Optional)<input type="tel" name="alt_phone" placeholder="Alternative number"></label>
+                <label>Social Media Handle<input type="text" name="social" placeholder="Instagram/TikTok handle" required></label>
+              </div>
+              <label>Occupation (Optional)<input type="text" name="occupation" placeholder="What you do"></label>
+              <label>Notes & Requests<textarea name="notes" rows="3" placeholder="Preferred style, event details..."></textarea></label>
+            </div>
+          </fieldset>
+
+          <div class="agreement-box">
+             <label class="checkbox-container">
+               <input type="checkbox" required>
+               <span class="checkmark"></span>
+               I acknowledge that I have read, understood, and agreed to all Policies, Guidelines, and Consultation requirements.
+             </label>
+          </div>
+
+          <button class="button button-primary" type="submit">Submit & Confirm via WhatsApp</button>
           <p class="form-feedback" id="booking-feedback" aria-live="polite"></p>
         </form>
       </div>
@@ -56,3 +155,4 @@
   <script src="site.js"></script>
 </body>
 </html>
+

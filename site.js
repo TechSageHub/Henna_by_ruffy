@@ -30,6 +30,8 @@ renderServicesPage();
 renderBookingOptions();
 renderTestimonials();
 setupRevealAnimations();
+setupServiceTypeToggle();
+setupBookingForm();
 setupForms();
 
 function renderHeader() {
@@ -121,9 +123,74 @@ function setupRevealAnimations() {
   items.forEach((item) => observer.observe(item));
 }
 
+function setupServiceTypeToggle() {
+  const typeSelect = document.getElementById("service_type");
+  const homeFields = document.getElementById("home-service-fields");
+  if (!typeSelect || !homeFields) return;
+
+  typeSelect.addEventListener("change", () => {
+    if (typeSelect.value === "Home Service") {
+      homeFields.classList.add("active");
+      homeFields.querySelectorAll("input").forEach(input => input.required = true);
+    } else {
+      homeFields.classList.remove("active");
+      homeFields.querySelectorAll("input").forEach(input => input.required = false);
+    }
+  });
+}
+
+function setupBookingForm() {
+  const form = document.getElementById("booking-form");
+  const feedback = document.getElementById("booking-feedback");
+  if (!form || !feedback) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    let message = `*Henna Booking Request*\n`;
+    message += `---------------------\n`;
+    message += `*Service:* ${data.service} (${data.service_type})\n`;
+    message += `*Date/Time:* ${data.date} @ ${data.time}\n`;
+    message += `*Client:* ${data.name}\n`;
+    message += `*Phone:* ${data.phone}\n`;
+    message += `*Social:* ${data.social}\n`;
+    if (data.occupation) message += `*Occupation:* ${data.occupation}\n`;
+
+    message += `\n*Consultation:*\n`;
+    message += `- Sensitive Skin: ${data.sensitive_skin}\n`;
+    message += `- Conditions: ${data.skin_condition}\n`;
+    message += `- Irritation: ${data.active_irritation}\n`;
+    message += `- Henna History: ${data.henna_history}\n`;
+    message += `- Allergies: ${data.allergies}\n`;
+    message += `- Medical Status: ${data.medical_status}\n`;
+
+    if (data.service_type === "Home Service") {
+      message += `\n*Location Info:*\n`;
+      message += `- Address: ${data.address}\n`;
+      message += `- Area: ${data.area}\n`;
+      message += `- Environment: ${data.environment}\n`;
+      message += `- Others present: ${data.others_present}\n`;
+    }
+
+    if (data.notes) message += `\n*Notes:* ${data.notes}\n`;
+    message += `---------------------\n`;
+    message += `_I have read and agree to all policies._`;
+
+    const whatsappUrl = `https://wa.me/2349038456155?text=${encodeURIComponent(message)}`;
+    
+    feedback.textContent = "Redirecting to WhatsApp to confirm your booking...";
+    setTimeout(() => {
+      window.open(whatsappUrl, "_blank");
+      form.reset();
+      feedback.textContent = "";
+    }, 1500);
+  });
+}
+
 function setupForms() {
   const formConfigs = [
-    ["booking-form", "booking-feedback", "Your booking request has been received. Connect this form to email, Formspree, or WhatsApp for live submissions."],
     ["interest-form", "interest-feedback", "Your interest has been noted. You can connect this form to a mailing list or CRM later."],
     ["contact-form", "contact-feedback", "Your message has been captured. Add a backend endpoint or form service to make it fully live."]
   ];
@@ -138,3 +205,4 @@ function setupForms() {
     });
   });
 }
+

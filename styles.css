@@ -460,7 +460,169 @@ p { margin: 0; }
 .gallery-future-alt {
   background: linear-gradient(180deg, rgba(25, 17, 14, 0.1), rgba(25, 17, 14, 0.72)), linear-gradient(145deg, rgba(255, 242, 234, 0.88), rgba(199, 170, 137, 0.62));
 }
-.contact-details { display: grid; gap: 1rem; }
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.policy-card {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(58, 38, 25, 0.08);
+}
+
+.policy-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.policy-header span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--gold-deep);
+  opacity: 0.6;
+}
+
+.policy-header h3 {
+  font-size: 1.25rem;
+}
+
+.policy-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Pro Booking Form */
+.booking-form-pro {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-step {
+  border: 1px solid rgba(58, 38, 25, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  background: var(--surface);
+}
+
+.form-step legend {
+  padding: 0 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-deep);
+}
+
+.step-guide {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.consultation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.check-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.check-group select {
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(58, 38, 25, 0.15);
+  background: white;
+}
+
+.booking-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.booking-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.booking-inputs input,
+.booking-inputs select,
+.booking-inputs textarea {
+  padding: 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(58, 38, 25, 0.15);
+  background: white;
+  width: 100%;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.conditional-fields {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: rgba(36, 25, 23, 0.03);
+  border-radius: 18px;
+  border-left: 3px solid var(--gold);
+}
+
+.conditional-fields.active {
+  display: flex;
+  animation: slideDown 300ms ease;
+}
+
+.agreement-box {
+  padding: 1rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.45;
+}
+
+.checkbox-container input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .policy-grid, .consultation-grid, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
 .contact-card { padding: 1.5rem; }
 .social-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 .social-links a { font-weight: 700; color: var(--gold-deep); }
