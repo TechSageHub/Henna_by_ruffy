@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | Henna_by_ruffy</title>
+  <meta name="description" content="Book a beauty appointment with Henna_by_ruffy for henna, nails, skincare, massage, and lashes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+</head>
+<body data-page="booking">
+  <div id="site-header"></div>
+  <main class="inner-page">
+    <section class="page-hero compact-page-hero">
+      <div class="container reveal">
+        <p class="eyebrow">Book Your Session</p>
+        <h1>Reserve your appointment in a few simple steps.</h1>
+        <p>Choose your preferred service, date, and time. This demo form is ready for future backend or WhatsApp integration.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container booking-grid">
+        <div class="booking-copy reveal">
+          <p class="eyebrow">Booking Notes</p>
+          <h2>Designed for beauty bookings now and easy expansion later.</h2>
+          <p>The structure supports current services and can grow to include staff availability, deposits, or integrated online scheduling whenever you are ready.</p>
+          <div class="booking-notes">
+            <article>
+              <h3>Fast response</h3>
+              <p>Use the form or WhatsApp button for quick appointment inquiries.</p>
+            </article>
+            <article>
+              <h3>Flexible scheduling</h3>
+              <p>Perfect for personal sessions, event prep, or beauty maintenance.</p>
+            </article>
+          </div>
+        </div>
+        <form class="form-card reveal" id="booking-form">
+          <label>Full Name<input type="text" name="name" placeholder="Enter your full name" required></label>
+          <label>Phone Number<input type="tel" name="phone" placeholder="+234..." required></label>
+          <label>Service Selection<select name="service" required id="booking-service"></select></label>
+          <label>Date<input type="date" name="date" required></label>
+          <label>Time<input type="time" name="time" required></label>
+          <label>Notes<textarea name="notes" rows="5" placeholder="Tell us about your preferred style, event, or any special requests."></textarea></label>
+          <button class="button button-primary" type="submit">Submit Booking Request</button>
+          <p class="form-feedback" id="booking-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <a class="whatsapp-fab" href="https://wa.me/2348000000000?text=Hello%20Henna_by_ruffy%2C%20I%20would%20love%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp Book Now</a>
+  <script src="site.js"></script>
+</body>
+</html>

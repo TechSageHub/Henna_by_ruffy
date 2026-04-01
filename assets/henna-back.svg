@@ -1,0 +1,28 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#A66C58"/>
+  <rect width="900" height="1100" fill="url(#paint0_radial)"/>
+  <rect width="900" height="1100" fill="url(#paint1_linear)" fill-opacity="0.35"/>
+  <path d="M447 170C510 250 492 345 450 402C408 459 399 548 450 597C501 646 515 728 468 793C437 835 420 877 430 930" stroke="#17110F" stroke-width="18" stroke-linecap="round"/>
+  <path d="M450 402C401 372 341 371 298 420C355 435 396 460 430 505" stroke="#17110F" stroke-width="13" stroke-linecap="round"/>
+  <path d="M446 410C492 373 553 370 609 417C554 438 505 463 470 510" stroke="#17110F" stroke-width="13" stroke-linecap="round"/>
+  <path d="M452 598C395 557 326 572 291 626C354 631 405 653 447 697" stroke="#17110F" stroke-width="13" stroke-linecap="round"/>
+  <path d="M450 597C503 559 573 571 614 625C546 629 497 651 454 700" stroke="#17110F" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="451" cy="585" r="78" stroke="#17110F" stroke-width="16"/>
+  <path d="M451 533C479 548 495 563 504 586C489 575 471 569 451 569C431 569 413 575 398 586C407 563 423 548 451 533Z" fill="#17110F"/>
+  <circle cx="448" cy="321" r="48" stroke="#17110F" stroke-width="14"/>
+  <path d="M448 255C470 276 492 287 521 290C499 302 484 319 475 343C470 317 460 298 448 282C436 298 426 317 421 343C412 319 397 302 375 290C404 287 426 276 448 255Z" fill="#17110F"/>
+  <path d="M394 197C418 214 431 237 438 267" stroke="#17110F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M505 198C482 214 468 237 461 267" stroke="#17110F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M373 760C408 748 430 742 451 742C472 742 498 748 532 760" stroke="#17110F" stroke-width="14" stroke-linecap="round"/>
+  <path d="M264 819C341 785 408 775 451 777C494 779 566 789 644 821" stroke="#17110F" stroke-width="15" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 420) rotate(90) scale(620 520)">
+      <stop stop-color="#C9917C"/>
+      <stop offset="1" stop-color="#8D5A48"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="450" y1="0" x2="450" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D1C5" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#4A2C24"/>
+    </linearGradient>
+  </defs>
+</svg>
