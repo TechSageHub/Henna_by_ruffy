@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Henna Content Experience | Henna_by_ruffy</title>
+  <meta name="description" content="Apply for the exclusive, invitation-style henna content experience curated by Henna_by_ruffy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hennawebsite.onrender.com/experience.html">
+  <meta property="og:title" content="The Henna Content Experience | Henna_by_ruffy">
+  <meta property="og:description" content="An exclusive collaboration designed to create timeless visuals and elevate henna artistry.">
+  <meta property="og:image" content="https://hennawebsite.onrender.com/assets/logo.jpeg">
+</head>
+<body data-page="experience">
+  <div id="site-header"></div>
+  <main class="inner-page">
+    <section class="page-hero experience-hero">
+      <div class="container reveal">
+        <p class="eyebrow">Exclusive Event</p>
+        <h1>The Henna Content Experience</h1>
+        <p>Welcome to an exclusive, invitation-style henna experience curated for content, beauty, and elegance. This is not just a service—it is a collaboration designed to create timeless visuals and elevate artistry.</p>
+        <p style="margin-top: 1rem; font-weight: 700; color: var(--gold);">Date: May 2nd & 3rd, 2026</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container experience-form-wrapper">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selection Process</p>
+          <h2>Application for Consideration</h2>
+          <p>Please note: Participation is strictly by selection. Only a limited number of individuals will be chosen for this refined and visually stunning outcome.</p>
+        </div>
+
+        <form class="booking-form-pro reveal" id="experience-form">
+          <!-- Step 1: Personal Details -->
+          <fieldset class="form-step">
+            <legend>Personal Details</legend>
+            <p class="step-guide">Kindly provide your information for proper consideration.</p>
+            <div class="booking-inputs">
+              <label>Full Name<input type="text" name="name" placeholder="Enter your full name" required></label>
+              <div class="grid-2">
+                <label>Phone Number (WhatsApp)<input type="tel" name="phone" placeholder="WhatsApp preferred" required></label>
+                <label>Instagram / TikTok Handle<input type="text" name="handle" placeholder="@yourhandle" required></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Availability & Consent -->
+          <fieldset class="form-step">
+            <legend>Availability & Consent</legend>
+            <div class="booking-inputs">
+              <label>Are you available for two consecutive days (May 2-3)?
+                <select name="availability" required>
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+              
+              <div class="form-section-title" style="margin-top: 1rem;">Content & Media Consent</div>
+              <label>Are you comfortable being filmed and photographed?
+                <select name="media_consent" required>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+              <label>Do you grant permission for your images/videos to be used for brand promotion?
+                <select name="promo_consent" required>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+
+              <div class="form-section-title" style="margin-top: 1rem;">Brand Collaboration Commitment</div>
+              <label>Will you post and tag @Henna_by_ruffy on your page/status?
+                <select name="post_tag" required>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+              <label>Can you commit to punctuality and full participation?
+                <select name="commitment" required>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 3: Design & Skin -->
+          <fieldset class="form-step">
+            <legend>Design Area & Skin Presentation</legend>
+            <div class="booking-inputs">
+              <label>Preferred Area
+                <select name="area" required>
+                  <option value="">Select an area</option>
+                  <option value="Hands">Hands</option>
+                  <option value="Thigh">Thigh</option>
+                  <option value="Leg">Leg</option>
+                  <option value="Back">Back</option>
+                  <option value="Collar & Shoulder">Collar area and shoulder</option>
+                </select>
+              </label>
+              <div class="upload-note">
+                <strong>📸 Skin Image:</strong> Due to privacy and platform limitations, please be ready to share a clear image of the selected area once you are redirected to WhatsApp.
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="step-guide" style="margin-top: 1rem;">Submit your application only if you appreciate detail, beauty, and creativity. Only selected applicants will be contacted with further details.</p>
+
+          <button class="button button-primary" type="submit">Submit Application via WhatsApp</button>
+          <p class="form-feedback" id="experience-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="site.js"></script>
+</body>
+</html>

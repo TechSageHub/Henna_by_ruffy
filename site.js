@@ -1,5 +1,6 @@
 const services = [
-  { title: "Signature Henna Services", description: "Luxury, long-lasting henna designs for brides, events, and photoshoots crafted with precision and elegance.", price: "Starting from ₦10,000", duration: "45-180 mins", active: true },
+  { title: "Henna Design (Normal)", description: "Premium henna designs starting from small to complex patterns. Price depends on design size and complexity.", price: "Starting from ₦10,000", duration: "30-90 mins", active: true },
+  { title: "Bridal Henna", description: "Elegant, full-length bridal henna designs for your special day. Crafted with precision and luxury in mind.", price: "Starting from ₦40,000", duration: "3-6 hours", active: true },
   { title: "Nails", description: "Manicure, pedicure, and nail styling — coming soon to the studio.", price: "Coming soon", duration: "-", active: false },
   { title: "Skincare", description: "Facial treatments and gentle renewal — coming soon to the studio.", price: "Coming soon", duration: "-", active: false },
   { title: "Massage", description: "Relaxing massage sessions for reset and wellness — coming soon to the studio.", price: "Coming soon", duration: "-", active: false },
@@ -15,6 +16,7 @@ const testimonials = [
 const navItems = [
   ["Home", "index.html", "home"],
   ["About", "about.html", "about"],
+  ["Experience", "experience.html", "experience"],
   ["Services", "services.html", "services"],
   ["Booking", "booking.html", "booking"],
   ["Education", "education.html", "education"],
@@ -32,12 +34,13 @@ renderTestimonials();
 setupRevealAnimations();
 setupServiceTypeToggle();
 setupBookingForm();
+setupExperienceForm();
 setupForms();
 
 function renderHeader() {
   const headerHost = document.getElementById("site-header");
   if (!headerHost) return;
-  headerHost.innerHTML = `<header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html" aria-label="Henna_by_ruffy home"><img src="assets/logo.jpeg" alt="Henna_by_ruffy logo"><div class="brand-copy"><strong>Henna_by_ruffy</strong><span>Beauty Studio & Academy</span></div></a><button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="nav-toggle-label">Menu</span></button><nav class="nav-links" id="nav-links">${navItems.map(([label, href, key]) => `<a href="${href}" class="${currentPage === key ? "active" : ""}">${label}</a>`).join("")}</nav></div></header>`;
+  headerHost.innerHTML = `<header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html" aria-label="Henna_by_ruffy home"><img src="assets/logo.jpeg" alt="Henna_by_ruffy logo"><div class="brand-copy"><strong>Henna_by_ruffy</strong><span>Beauty Studio & Academy</span></div></a><button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="nav-toggle-label">Menu</span></button><nav class="nav-links" id="nav-links">${navItems.map(([label, href, key]) => `<a href="${href}" class="${currentPage === key ? "active" : ""}">${label}</a>`).join("")}<a href="booking.html" class="nav-cta">Book now</a></nav></div></header>`;
   const toggle = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
   if (toggle && links) {
@@ -218,19 +221,76 @@ function setupBookingForm() {
 }
 
 function setupForms() {
-  const formConfigs = [
-    ["interest-form", "interest-feedback", "Your interest has been noted. You can connect this form to a mailing list or CRM later."],
-    ["contact-form", "contact-feedback", "Your message has been captured. Add a backend endpoint or form service to make it fully live."]
-  ];
-  formConfigs.forEach(([formId, feedbackId, message]) => {
-    const form = document.getElementById(formId);
-    const feedback = document.getElementById(feedbackId);
-    if (!form || !feedback) return;
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      feedback.textContent = message;
-      form.reset();
+  const contactForm = document.getElementById("contact-form");
+  const contactFeedback = document.getElementById("contact-feedback");
+
+  if (contactForm && contactFeedback) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+
+      let message = `*Henna_by_ruffy Inquiry*\n`;
+      message += `---------------------\n`;
+      message += `*Name:* ${data.name}\n`;
+      message += `*Email:* ${data.email}\n`;
+      message += `*Message:* ${data.message}\n`;
+      message += `---------------------\n`;
+
+      const whatsappUrl = `https://wa.me/2349038456155?text=${encodeURIComponent(message)}`;
+      contactFeedback.textContent = "Redirecting to WhatsApp...";
+      setTimeout(() => {
+        window.open(whatsappUrl, "_blank");
+        contactForm.reset();
+        contactFeedback.textContent = "";
+      }, 1200);
     });
+  }
+
+  const interestForm = document.getElementById("interest-form");
+  const interestFeedback = document.getElementById("interest-feedback");
+  if (interestForm && interestFeedback) {
+    interestForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      interestFeedback.textContent = "Your interest has been noted!";
+      interestForm.reset();
+    });
+  }
+}
+
+function setupExperienceForm() {
+  const form = document.getElementById("experience-form");
+  const feedback = document.getElementById("experience-feedback");
+  if (!form || !feedback) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    let message = `*Henna Content Experience Application*\n`;
+    message += `---------------------\n`;
+    message += `*Name:* ${data.name}\n`;
+    message += `*WhatsApp:* ${data.phone}\n`;
+    message += `*Handle:* ${data.handle}\n\n`;
+    
+    message += `*Availability:* ${data.availability}\n`;
+    message += `*Filming/Photo Consent:* ${data.media_consent}\n`;
+    message += `*Promotion Consent:* ${data.promo_consent}\n`;
+    message += `*Will Post/Tag:* ${data.post_tag}\n`;
+    message += `*Commitment:* ${data.commitment}\n\n`;
+    
+    message += `*Preferred Area:* ${data.area}\n`;
+    message += `---------------------\n`;
+    message += `_Note: I am ready to share the photo of the selected area._`;
+
+    const whatsappUrl = `https://wa.me/2349038456155?text=${encodeURIComponent(message)}`;
+    feedback.textContent = "Redirecting to WhatsApp to complete your application...";
+    setTimeout(() => {
+      window.open(whatsappUrl, "_blank");
+      form.reset();
+      feedback.textContent = "";
+    }, 1500);
   });
 }
 
