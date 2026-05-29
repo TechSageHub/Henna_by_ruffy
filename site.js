@@ -32,6 +32,7 @@ renderServicesPage();
 renderBookingOptions();
 renderTestimonials();
 setupRevealAnimations();
+setupLuxuryInteractions();
 setupServiceTypeToggle();
 setupBookingForm();
 setupExperienceForm();
@@ -152,6 +153,31 @@ function setupRevealAnimations() {
     });
   }, { threshold: 0.18 });
   items.forEach((item) => observer.observe(item));
+}
+
+function setupLuxuryInteractions() {
+  const header = document.querySelector(".site-header");
+  const parallaxItems = Array.from(document.querySelectorAll(".hero-visual, .mosaic-card, .strip-card, .gallery-card, .page-hero-art"));
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const updateScrollState = () => {
+    header?.classList.toggle("is-scrolled", window.scrollY > 24);
+
+    if (prefersReducedMotion || window.innerWidth < 900) return;
+    parallaxItems.forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || 1;
+      if (rect.bottom < 0 || rect.top > viewportHeight) return;
+
+      const progress = (rect.top - viewportHeight * 0.5) / viewportHeight;
+      const depth = index % 2 === 0 ? 10 : -8;
+      item.style.setProperty("--parallax-y", `${progress * depth}px`);
+    });
+  };
+
+  updateScrollState();
+  window.addEventListener("scroll", updateScrollState, { passive: true });
+  window.addEventListener("resize", updateScrollState);
 }
 
 function setupServiceTypeToggle() {
