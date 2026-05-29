@@ -33,6 +33,7 @@ renderBookingOptions();
 renderTestimonials();
 setupRevealAnimations();
 setupLuxuryInteractions();
+setupBookingAssistant();
 setupServiceTypeToggle();
 setupBookingForm();
 setupExperienceForm();
@@ -41,7 +42,7 @@ setupForms();
 function renderHeader() {
   const headerHost = document.getElementById("site-header");
   if (!headerHost) return;
-  headerHost.innerHTML = `<header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html" aria-label="Henna_by_ruffy home"><img src="assets/logo.png" alt="Henna_by_ruffy logo"><div class="brand-copy"><strong>Henna_by_ruffy</strong><span>Beauty Studio & Academy</span></div></a><button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="nav-toggle-label">Menu</span></button><nav class="nav-links" id="nav-links">${navItems.map(([label, href, key]) => `<a href="${href}" class="${currentPage === key ? "active" : ""}">${label}</a>`).join("")}<a href="booking.html" class="nav-cta">Book now</a></nav></div></header>`;
+  headerHost.innerHTML = `<header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html" aria-label="Henna_by_ruffy home"><img src="assets/logo.png" alt="Henna_by_ruffy logo"><div class="brand-copy"><strong>Henna_by_ruffy</strong><span>Beauty Studio & Academy</span></div></a><button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="nav-toggle-label">Menu</span></button><nav class="nav-links" id="nav-links">${navItems.map(([label, href, key]) => `<a href="${href}" class="${currentPage === key ? "active" : ""}">${label}</a>`).join("")}<a href="booking.html" class="nav-cta">Book now</a></nav></div></header>`;
   const toggle = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
   if (toggle && links) {
@@ -75,6 +76,7 @@ function renderFooter() {
           <div>
             <h3>Contact</h3>
             <div class="footer-contact">
+              <span>Ojuwoye, No 53 Adeyemi Street, off LUTH Road, Mushin, Lagos, Nigeria.</span>
               <a href="tel:+2349038456155">+234 903 845 6155</a>
               <a href="mailto:Rofihatraheem@gmail.com">Rofihatraheem@gmail.com</a>
               <a href="https://www.instagram.com/henna_by_ruffy?igsh=MnNqcXNjbXp4NzF3&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
@@ -178,6 +180,64 @@ function setupLuxuryInteractions() {
   updateScrollState();
   window.addEventListener("scroll", updateScrollState, { passive: true });
   window.addEventListener("resize", updateScrollState);
+}
+
+function setupBookingAssistant() {
+  if (document.getElementById("booking-assistant")) return;
+
+  const assistant = document.createElement("aside");
+  assistant.className = "booking-assistant";
+  assistant.id = "booking-assistant";
+  assistant.innerHTML = `
+    <button class="assistant-toggle" type="button" aria-expanded="false" aria-controls="assistant-panel">
+      <span class="assistant-pulse" aria-hidden="true"></span>
+      Ask Ruffy Assist
+    </button>
+    <div class="assistant-panel" id="assistant-panel" aria-live="polite">
+      <div class="assistant-header">
+        <div>
+          <p class="eyebrow">Client Assistant</p>
+          <h3>How can I help?</h3>
+        </div>
+        <button class="assistant-close" type="button" aria-label="Close assistant">x</button>
+      </div>
+      <div class="assistant-message" id="assistant-message">
+        Hi, I can guide you on booking, classes, products, studio address, and WhatsApp confirmation.
+      </div>
+      <div class="assistant-quick-actions">
+        <button type="button" data-answer="booking">How do I book?</button>
+        <button type="button" data-answer="classes">Class options</button>
+        <button type="button" data-answer="products">Henna products</button>
+        <button type="button" data-answer="address">Studio address</button>
+      </div>
+      <a class="button button-primary assistant-whatsapp" href="https://wa.me/2349038456155?text=Hello%20Henna_by_ruffy%2C%20I%20need%20help%20with%20booking" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>`;
+
+  document.body.appendChild(assistant);
+
+  const toggle = assistant.querySelector(".assistant-toggle");
+  const close = assistant.querySelector(".assistant-close");
+  const panel = assistant.querySelector(".assistant-panel");
+  const message = assistant.querySelector("#assistant-message");
+  const answers = {
+    booking: "To book, open the Booking page, read the policy, choose your service, select studio or home service, pick your date/time, then submit. You will be redirected to WhatsApp to confirm.",
+    classes: "Henna classes are available physically and virtually. Basic and Standard classes run for 3 weeks, while Premium class runs for 1 month.",
+    products: "Available products include black henna: Tancho, Olive Henna, TikTok, 20 in 1 Henna. Red henna: Elina, Habibi, TikTok, Eshaal, and Neha.",
+    address: "The studio address is Ojuwoye, No 53 Adeyemi Street, off LUTH Road, Mushin, Lagos, Nigeria."
+  };
+
+  const setOpen = (isOpen) => {
+    assistant.classList.toggle("open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  toggle.addEventListener("click", () => setOpen(!assistant.classList.contains("open")));
+  close.addEventListener("click", () => setOpen(false));
+  panel.querySelectorAll("[data-answer]").forEach((button) => {
+    button.addEventListener("click", () => {
+      message.textContent = answers[button.dataset.answer];
+    });
+  });
 }
 
 function setupServiceTypeToggle() {
