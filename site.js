@@ -16,7 +16,6 @@ const testimonials = [
 const navItems = [
   ["Home", "index.html", "home"],
   ["About", "about.html", "about"],
-  ["Experience", "experience.html", "experience"],
   ["Services", "services.html", "services"],
   ["Booking", "booking.html", "booking"],
   ["Education", "education.html", "education"],
@@ -190,8 +189,11 @@ function setupBookingAssistant() {
   assistant.id = "booking-assistant";
   assistant.innerHTML = `
     <button class="assistant-toggle" type="button" aria-expanded="false" aria-controls="assistant-panel">
+      <svg class="assistant-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span class="assistant-toggle-text">Ask Ruffy Assist</span>
       <span class="assistant-pulse" aria-hidden="true"></span>
-      Ask Ruffy Assist
     </button>
     <div class="assistant-panel" id="assistant-panel" aria-live="polite">
       <div class="assistant-header">
